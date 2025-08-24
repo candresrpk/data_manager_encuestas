@@ -1,0 +1,40 @@
+{% extends '../base.html' %}
+
+{% block title %}Listar Encuesta{% endblock  %}
+
+{% block content %}
+
+
+<h1>Encuestas Existentes</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Fecha de Creación</th>
+            <th>Administrador</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for encuesta in encuestas %}
+        <tr>
+            <td>{{ encuesta.encuesta.id }}</td>
+            <td>{{ encuesta.encuesta.nombre }}</td>
+            <td>{{ encuesta.encuesta.descripcion }}</td>
+            <td>{{ encuesta.encuesta.fecha_creacion }}</td>
+            <td>{{ encuesta.encuesta.creador }}</td>
+            <td>
+                <a href="#" class="btn btn-warning btn-sm">Editar</a>
+                <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No hay encuestas disponibles.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

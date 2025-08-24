@@ -1,0 +1,26 @@
+{% extends '../base.html' %}
+
+
+{% block title %}Inicio{% endblock  %}
+
+{% block content %}
+<h1>Encuestas</h1>
+
+    <div class="row">
+
+        <h2>Bienvenido a la creacion de encuestas para manejo de datos</h2>
+        <p>Seleccione una de las siguientes opciones:</p>
+        <div class="col">
+            <a class="btn btn-primary" href="{% url 'encuestas:encuesta_create' %}">Crear Nueva Encuesta</a>
+        </div>
+        <div class="col">
+            <a class="btn btn-secondary" href="{% url 'encuestas:encuesta_list' %}">Ver Encuestas Existentes</a>
+        </div>
+        <div class="col">
+            <a class="btn btn-info" href="#">Ver Estadísticas</a>
+        </div> 
+        
+        
+    </div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+<div class="mb-3">
+    <h5>Selecciona la edad:</h5>
+    {% for e in edades %}
+        <button 
+            class="btn btn-outline-primary btn-lg m-1"
+            hx-get="{% url 'dapco:cuotas_encuesta' encuesta.id %}?edad={{ e }}"
+            hx-target="#filtros"
+            hx-swap="innerHTML">
+            {{ e }}
+        </button>
+    {% endfor %}
+</div>
