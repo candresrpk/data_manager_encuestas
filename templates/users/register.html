@@ -1,0 +1,50 @@
+{% extends '../base.html' %}
+
+
+{% block content %}
+
+    <div class="form-container bg-white p-4 rounded-4 shadow ">
+        <h2 class="text-center mb-4 text-success fw-bold">Crear Cuenta</h2>
+
+        <form method="post" novalidate>
+        {% csrf_token %}
+
+        <!-- Username -->
+        <div class="mb-3">
+            <label for="id_username" class="form-label text-success fw-semibold">Usuario</label>
+            <input type="text" name="username" id="id_username" class="form-control border-success"
+                value="{{ form.username.value|default_if_none:'' }}">
+            {% if form.username.errors %}
+            <div class="text-danger small mt-1">{{ form.username.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <!-- Password1 -->
+        <div class="mb-3">
+            <label for="id_password1" class="form-label text-success fw-semibold">Contraseña</label>
+            <input type="password" name="password1" id="id_password1" class="form-control border-success">
+            {% if form.password1.errors %}
+            <div class="text-danger small mt-1">{{ form.password1.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <!-- Password2 -->
+        <div class="mb-4">
+            <label for="id_password2" class="form-label text-success fw-semibold">Confirmar Contraseña</label>
+            <input type="password" name="password2" id="id_password2" class="form-control border-success">
+            {% if form.password2.errors %}
+            <div class="text-danger small mt-1">{{ form.password2.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <!-- Botón enviar -->
+        <button type="submit" class="btn btn-success w-100">Registrarse</button>
+        </form>
+
+        <p class="mt-3 text-center text-muted small">
+        ¿Ya tienes una cuenta?
+        <a href="{% url 'users:login' %}" class="text-success fw-semibold text-decoration-none">Inicia sesión</a>
+        </p>
+    </div>
+
+{% endblock  %}

@@ -1,0 +1,40 @@
+{% extends '../base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock  %}
+
+{% block content %}
+
+
+    <div class="form-container bg-white p-4 rounded-4 shadow">
+        <h2 class="text-center mb-4 text-success fw-bold">Iniciar sesion</h2>
+
+        <form method="post" novalidate>
+        {% csrf_token %}
+
+        <!-- Username -->
+        <div class="mb-3">
+            <label for="id_username" class="form-label text-success fw-semibold">Usuario</label>
+            <input type="text" name="username" id="id_username" class="form-control border-success"
+                value="{{ form.username.value|default_if_none:'' }}">
+            {% if form.username.errors %}
+            <div class="text-danger small mt-1">{{ form.username.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+            <label for="id_password" class="form-label text-success fw-semibold">Contraseña</label>
+            <input type="password" name="password" id="id_password" class="form-control border-success">
+            {% if form.password.errors %}
+            <div class="text-danger small mt-1">{{ form.password.errors.0 }}</div>
+            {% endif %}
+        </div>
+
+        <!-- Botón enviar -->
+        <button type="submit" class="btn btn-success w-100">Iniciar</button>
+        </form>
+
+    </div>
+
+{% endblock  %}

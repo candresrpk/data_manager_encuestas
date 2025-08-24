@@ -21,9 +21,13 @@
 
     <body>
         <header>
-            <!-- place navbar here -->
+            
+            {% include "./includes/navbar.html" %}
+
         </header>
-        <main>
+        <main class="container my-5">
+
+            {% include "./includes/messages.html" %}
 
             {% block content %}
             {% endblock %}

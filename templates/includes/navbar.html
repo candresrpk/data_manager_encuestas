@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand text-success fw-bold" href="/">Data_Control</a>
+
+    <!-- Botón hamburguesa -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+      aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Contenido del navbar -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <!-- Enlaces principales -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-success fw-medium" href="#">Cuotas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-success fw-medium" href="#">Encuestas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-success fw-medium" href="#">Estadísticas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-success fw-medium" href="#">Usuarios</a>
+        </li>
+      </ul>
+
+      <!-- Autenticación -->
+      {% if request.user.is_authenticated %}
+        <span class="navbar-text me-3 text-muted">
+          Hola, {{ request.user.username }}
+        </span>
+        <a href="{% url 'users:logout' %}" class="btn btn-outline-danger btn-sm">Cerrar sesión</a>
+      {% else %}
+        <a href="{% url 'users:login' %}" class="btn btn-outline-success btn-sm me-2">Iniciar sesión</a>
+        <a href="{% url 'users:register' %}" class="btn btn-success btn-sm">Crear cuenta</a>
+      {% endif %}
+    </div>
+  </div>
+</nav>
