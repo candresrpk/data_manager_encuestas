@@ -1,9 +1,9 @@
 <div class="mb-3">
-    <h5>Selecciona el barrio:</h5>
-    {% for b in barrios %}
+    <h5>Selecciona el Estato:</h5>
+    {% for e in estratos %}
         <button 
-            class="btn btn-outline-warning btn-lg m-1"
-            hx-get="{% url 'dapco:cuotas_encuesta' encuesta.id %}?edad={{ edad }}&sexo={{ sexo }}&barrio={{ barrio }}&estrato={{ e }}"
+            class="btn btn-outline-info btn-lg m-1"
+            hx-get="{% url 'encuestas:cuotas_encuesta' encuesta.id %}?genero={{ genero }}&edad={{ edad }}&barrio={{ barrio }}&estrato={{ e }}"
             hx-target="#filtros"
             hx-swap="innerHTML">
             {{ e }}

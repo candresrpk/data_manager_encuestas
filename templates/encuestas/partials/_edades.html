@@ -3,7 +3,7 @@
     {% for e in edades %}
         <button 
             class="btn btn-outline-primary btn-lg m-1"
-            hx-get="{% url 'dapco:cuotas_encuesta' encuesta.id %}?edad={{ e }}"
+            hx-get="{% url 'encuestas:cuotas_encuesta' encuesta.id %}?genero={{ genero }}&edad={{ e }}"
             hx-target="#filtros"
             hx-swap="innerHTML">
             {{ e }}

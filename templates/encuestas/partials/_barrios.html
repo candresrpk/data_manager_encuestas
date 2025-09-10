@@ -3,7 +3,7 @@
     {% for b in barrios %}
         <button 
             class="btn btn-outline-warning btn-lg m-1"
-            hx-get="{% url 'dapco:cuotas_encuesta' encuesta.id %}?edad={{ edad }}&sexo={{ sexo }}&barrio={{ b }}"
+            hx-get="{% url 'encuestas:cuotas_encuesta' encuesta.id %}?genero={{ genero }}&edad={{ edad }}&barrio={{ b }}"
             hx-target="#filtros"
             hx-swap="innerHTML">
             {{ b }}

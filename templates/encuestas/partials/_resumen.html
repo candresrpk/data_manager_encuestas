@@ -1,8 +1,11 @@
 <div class="card p-4">
     <h5>Resumen de la cuota seleccionada:</h5>
     <p><strong>Edad:</strong> {{ edad }}</p>
-    <p><strong>Género:</strong> {{ sexo }}</p>
+    <p><strong>Género:</strong> {{ genero }}</p>
     <p><strong>Barrio:</strong> {{ barrio }}</p>
+    <p><strong>Estrato:</strong> {{ estrato }}</p>
 
+
+    <a href="{% url 'encuestas:iniciar_encuesta' encuesta.id %}?genero={{ genero }}&edad={{ edad }}&barrio={{ barrio }}&estrato={{ estrato }}" class="btn btn-primary">Iniciar encuesta</a>
     
 </div>

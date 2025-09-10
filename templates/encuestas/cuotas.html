@@ -1,0 +1,26 @@
+{% extends '../base.html' %}
+
+{% block content %}
+<div class="container py-5 text-center">
+    <h2 class="mb-4">Selecciona la cuota que vas a cumplir</h2>
+
+    <!-- Contenedor que se reemplaza dinámicamente -->
+    <div id="filtros">
+        {% include 'encuestas/partials/_generos.html' with generos=generos %}
+    </div>
+
+    <!-- Botón reiniciar (fuera del bloque dinámico) -->
+    <div class="mt-4">
+        <button 
+            class="btn btn-secondary"
+            hx-get="{% url 'encuestas:cuotas_encuesta' encuesta.id %}"
+            hx-target="#filtros"
+            hx-swap="innerHTML">
+            <i class="fas fa-undo me-2"></i> Reiniciar filtros
+        </button>
+    </div>
+</div>
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+<!-- CDN Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+{% endblock %}
